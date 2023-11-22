@@ -1,0 +1,292 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css?family=Alatsi:700|Alatsi:400');
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Base Styles */
+body {
+    font-family: 'Alatsi';
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Alatsi';
+    font-weight: 700;
+}
+
+html {
+    font-size: 100%;
+}
+
+/* Theme Styles */
+.light-theme {
+    --text-color: rgb(8, 25, 38);
+    --background-color: rgb(255, 255, 255);
+    --primary-color: rgb(40, 131, 200);
+    --secondary-color: rgb(195, 222, 243);
+    --accent-color: rgb(39, 128, 196);
+    --star-color: black; /* Adjust the star color for light theme */
+}
+
+.dark-theme {
+    --text-color: rgb(217, 234, 247);
+    --background-color: rgb(0, 0, 0);
+    --primary-color: rgb(55, 146, 215);
+    --secondary-color: rgb(12, 39, 60);
+    --accent-color: rgb(59, 148, 216);
+    --star-color: white; /* Adjust the star color for dark theme */
+}
+
+body{
+    scrollbar-color: var(--accent-color) var(--background-color); /* thumb color track color */
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color); /* Use the accent color for the thumb */
+    border-radius: 6px; /* Optional: round the corners of the thumb */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--background-color); /* Set the color of the track */
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+/* Header Styles */
+header {
+    padding: 10px;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Underline Effect for 'ulta' Class */
+nav li.ulta {
+    position: relative;
+}
+
+nav li.ulta::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-color);
+    transform: scaleX(0);  /* Initial scale to hide the underline */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav li.ulta:hover::after {
+    transform: scaleX(1);  /* Scale to reveal the underline on hover */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+/* Paragraph Styles and Animations */
+.left-paragraph,
+.right-paragraph {
+    padding: 20px;
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    opacity: 0; /* Start with opacity 0 for the animation */
+    transform: translateX(0); /* Initial position on the X-axis */
+    width: 60%;
+}
+
+.left-paragraph {
+    text-align: center;
+    align-self: flex-start;
+}
+
+.right-paragraph {
+    text-align: center;
+    align-self: flex-end;
+}
+
+/* Additional Styles for Animation */
+.left-paragraph.appear-from-left,
+.right-paragraph.appear-from-right {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 1;
+    transform: translateX(0); /* Reset translation */
+}
+
+.left-paragraph.hidden,
+.right-paragraph.hidden {
+    opacity: 0;
+    transform: translateY(20px); /* You can adjust the value for a smoother animation */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.left-paragraph.appear-from-right,
+.right-paragraph.appear-from-left {
+    opacity: 1;
+    transform: translateX(0); /* Reset translation */
+}
+
+/* Add these styles for the animation */
+.left-paragraph.appear {
+    opacity: 1;
+    transform: translateX(0); /* Reset translation */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.right-paragraph.appear {
+    opacity: 1;
+    transform: translateX(0); /* Reset translation */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Content and Footer Styles */
+.content {
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: auto; */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    color: var(--text-color);
+}
+
+.footer-text {
+    text-align: left;
+}
+
+.footer-text li {
+    color: var(--accent-color);
+}
+
+.footer-social-icons img {
+    margin: 0 5px;  /* Adjust margin as needed */
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    /* Add more styles if needed */
+}
+
+/* Hidden Element Styles */
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Visible Footer Content */
+.footer-content.visible {
+    display: flex;
+}
+
+/* Button and Icon Styles */
+button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.icons {
+    height: 25px;
+    width: 25px;
+    box-shadow: inset 0 0 10px white, inset 0 0 20px white, inset 0 0 30px white;
+}
+
+/* Hidden Element Styles */
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Star-like Decoration */
+.star-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('/images/svg/star.svg') repeat;
+    z-index: -1;
+}
+
+.light-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Dark Theme Dots */
+.dark-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Dot Styles */
+.dot {
+    position: absolute;
+    width: 5px; /* Adjust the size of the dots */
+    height: 5px;
+    border-radius: 50%;
+}
+
+/* Light Theme Dot Color */
+.light-theme .dot {
+    background-color: var(--text-color);
+}
+
+/* Dark Theme Dot Color */
+.dark-theme .dot {
+    background-color: var(--star-color);
+    box-shadow: 0 0 10px var(--star-color); /* Add a glow effect */
+}
+
+.dots-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
